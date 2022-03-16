@@ -1,4 +1,11 @@
-find_package(nlohmann_json REQUIRED)
+if(USE_FETCH_CONTENT)
+    include(FetchContent)
+
+    FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.10.4/json.tar.xz)
+    FetchContent_MakeAvailable(json)
+else() 
+    find_package(nlohmann_json REQUIRED)
+endif()
 
 add_subdirectory(test)
 
