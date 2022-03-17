@@ -7,7 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_BINARY_DIR}")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-include(UseCCache)
+# zmiana [1] pobieram zależności ONLINE
+set(USE_FETCH_CONTENT on)
+
+# zmiana [2] narazie zakomentowane bo brak ccache.exe blokuje budowanie 
+#include(UseCCache)
 include(UseClangTidy)
 include(UseSanitizer)
 include(UseCodeCoverage)
