@@ -22,6 +22,12 @@ target_link_libraries(${APP_NAME} PUBLIC FileOperations)
 target_link_libraries(${APP_NAME} PUBLIC JsonHistoryParser)
 
 set_target_properties(${APP_NAME} PROPERTIES AUTOMOC ON)
+if(MY_DIR_OUT)
+    set_target_properties(${APP_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${MY_DIR_OUT}) 
+    message("")
+    message("^^^^ USE MY_DIR_OUT = ${MY_DIR_OUT}  in project ${APP_NAME} ^^^^^") 
+    message("")    
+endif()
 
 target_compile_options(${APP_NAME} PRIVATE $<$<COMPILE_LANG_AND_ID:CXX,Clang,AppleClang>:-Wall -O3 -Wno-unused-parameter>
                                    PRIVATE $<$<COMPILE_LANG_AND_ID:CXX,GNU>:-Wall -O3 -Wno-unused-parameter>
