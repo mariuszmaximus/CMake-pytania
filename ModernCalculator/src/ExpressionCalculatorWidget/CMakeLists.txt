@@ -19,6 +19,14 @@ target_link_libraries(${LIB_NAME} PRIVATE Qt5::Widgets)
 target_link_libraries(${LIB_NAME} PUBLIC ExpressionParser)
 
 set_target_properties(${LIB_NAME} PROPERTIES AUTOMOC ON)
+if(MY_DIR_OUT)
+    #set_target_properties(${LIB_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+    #set_target_properties(${LIB_NAME} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+    set_target_properties(${LIB_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${MY_DIR_OUT})
+    message("")
+    message("^^^^ USE MY_DIR_OUT = ${MY_DIR_OUT}  in project ${APP_NAME} ^^^^^") 
+    message("")    
+endif()
 
 target_compile_options(
         ${LIB_NAME} PRIVATE $<$<COMPILE_LANG_AND_ID:CXX,Clang,AppleClang>:-Wall -O3 -Wno-unused-parameter>
