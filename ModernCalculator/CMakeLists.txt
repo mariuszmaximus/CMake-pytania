@@ -10,6 +10,12 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 # zmiana [1] pobieram zależności ONLINE
 set(USE_FETCH_CONTENT on)
 
+# zmiana [3]
+set(MY_DIR_OUT ${CMAKE_BINARY_DIR}/koza)
+message("")
+message("^^^^ MY_DIR_OUT = ${MY_DIR_OUT} ^^^^^") 
+message("")
+
 # zmiana [2] narazie zakomentowane bo brak ccache.exe blokuje budowanie 
 #include(UseCCache)
 include(UseClangTidy)
